@@ -9,6 +9,6 @@ module.exports = {
   },
   chainWebpack: config => {
     config.resolve.alias
-      .set('@page', resolve('src/components/page'))
+      .set('@page', resolve('src/components/pages'))
   }
 }
