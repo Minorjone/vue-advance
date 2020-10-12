@@ -1,23 +1,27 @@
-let Vue
-class Store {
-  constructor (options) {
-    this.state = new Vue({
-      data: options.state
-    })
-  }
-}
+import Vue from 'vue'
+import Vuex from './KVuex'
 
-function install (_Vue) {
-  Vue = _Vue
-  Vue.mixins({
-    beforeCreate () {
-      if (this.$options.store) {
-        Vue.prototype.$store = this.$options.state
-      }
+Vue.use(Vuex)
+
+export default new Vuex.Store({
+  state: {
+    counter: 0
+  },
+  getters: {
+    doubleCounter (state) {
+      return state.counter * 2
     }
-  })
-}
-
-export default {
-  Store
-}
+  },
+  mutations: {
+    add (state) {
+      state.counter ++
+    }
+  },
+  actions: {
+    add ({ commit }) {
+      setTimeout(() => {
+        commit('add')
+      }, 1000);
+    }
+  }
+})
