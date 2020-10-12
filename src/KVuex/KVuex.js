@@ -1,3 +1,9 @@
+// 需求：
+// 1.Vue插件形式存在
+// 2.单向数据流，响应式状态更新
+// 3.明确获取全局状态
+// 4.只能由store修改状态
+
 let Vue
 class Store {
   constructor (options) {
